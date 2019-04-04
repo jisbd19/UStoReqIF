@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="us" nsURI="http://www.umu.es/dsdm/requirements/us" nsPrefix="us">
+  <eClassifiers xsi:type="ecore:EClass" name="Theme" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="epic" upperBound="-1" eType="#//Epic"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserStory" eSuperTypes="#//NamedElement #//BacklogItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="epic" eType="#//Epic" eOpposite="#//Epic/userStories"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptanceTest" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Epic" eSuperTypes="#//NamedElement #//BacklogItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userStories" lowerBound="1"
+        upperBound="-1" eType="#//UserStory" containment="true" eOpposite="#//UserStory/epic"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="STATE">
+    <eLiterals name="DONE"/>
+    <eLiterals name="PLANNED" value="1"/>
+    <eLiterals name="INPROGRESS" value="2"/>
+    <eLiterals name="CANCELED" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Who" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="What" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Why" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductBacklogHeader">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationDate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastUpdate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BacklogItem" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storyPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//STATE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conversation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" lowerBound="1" eType="#//Who"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goal" eType="#//Why" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="acceptanceTest" eType="#//AcceptanceTest"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//What"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductBacklogContent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+        upperBound="-1" eType="#//BacklogItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="themes" upperBound="-1"
+        eType="#//Theme" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductBacklog">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="#//ProductBacklogContent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="header" lowerBound="1"
+        eType="#//ProductBacklogHeader" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

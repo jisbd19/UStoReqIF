@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<us:ProductBacklog 	xmi:version="2.0" 
+					xmlns:xmi="http://www.omg.org/XMI" 
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    				xmlns:us="http://www.umu.es/dsdm/requirements/us" 
+    				xsi:schemaLocation="http://www.umu.es/dsdm/requirements/us UserStory.ecore">
+  <content>
+    <elements xsi:type="us:UserStory" name="US1">
+      <role name="site_visitor"/>
+      <goal name="&quot;I stay current on agile news&quot;"/>
+      <task name="&quot;read current news on the home page&quot;"/>
+    </elements>
+    <elements xsi:type="us:UserStory" name="US2" state="INPROGRESS">
+      <role name="site_visitor"/>
+      <goal name="&quot;I can access things I remember&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;from the past or that others mention to me&quot;"/>
+      <task name="&quot; access old news that is no longer on the home page&quot;"/>
+    </elements>
+    <elements xsi:type="us:UserStory" name="US3">
+      <role name="site_visitor"/>
+      <goal name="&quot;they can be considered for publication&quot;"/>
+      <task name="&quot;email news items to the editor&quot;"/>
+    </elements>
+    <elements xsi:type="us:UserStory" name="US4" state="PLANNED">
+      <role name="site_editor"/>
+      <goal name="&quot;articles are published on and through appropriate dates&quot;"/>
+      <task name="&quot;set the following dates on a news item: &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  Start Publishing Date, Old News Date, Stop Publishing Date. &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  These dates refer to the date an item becomes visible on the site &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  (perhaps next Monday), the date it stops appearing on the home page, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  and the date it is removed from the site (which may be never).&quot;"/>
+    </elements>
+    <elements xsi:type="us:UserStory" name="US5" state="CANCELED">
+      <role name="site_member"/>
+      <task name="&quot;subscribe to an RSS feed of news (and events?)&quot;"/>
+    </elements>
+    <elements xsi:type="us:Epic" name="EP1" state="PLANNED">
+      <role name="site_editor"/>
+      <task name="&quot;show items displayed on the front page based on priority&quot;"/>
+      <userStories name="US1_1" state="INPROGRESS">
+        <role name="site_editor"/>
+        <task name="&quot;assign priority numbers to news items&quot;"/>
+      </userStories>
+      <userStories name="US1_2" state="PLANNED">
+        <role name="site_editor"/>
+        <task name="&quot;indicate which articles I want featured&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &#x9;&#x9;&#x9;&#x9;&#x9;&#x9; most prominently on the site&quot;"/>
+      </userStories>
+    </elements>
+  </content>
+  <header creationDate="2018-01-01T00:00:00.000+0100" lastUpdate="2018-01-05T00:00:00.000+0100" name="M_COHN_NEWS_EXAMPLE"/>    
+ </us:ProductBacklog>
